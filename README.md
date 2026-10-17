@@ -3,6 +3,7 @@
 Executable located in /dist
 
 Statistics: 99.22% accuracy, only 18 failed games out of 2,308
+
 Expected Amount of Guesses: 3.714
 
 This optimizer's goal is to maximize the probability of guessing the word in 4 attempts or less.
