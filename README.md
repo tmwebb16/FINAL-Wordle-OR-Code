@@ -1,6 +1,6 @@
 # Wordle optimizer
 
-Executable located in /dist
+Executable located in \dist
 
 Statistics: 99.22% accuracy, only 18 failed games out of 2,308
 
