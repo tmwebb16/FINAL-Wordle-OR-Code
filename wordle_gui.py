@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import ttk
 
 import main as game
-from second_guesses import SECOND_GUESSES
+from second_guesses import SECOND_GUESSES, STARTING_WORD
 
 BG = "#101719"
 CARD = "#1b2528"
@@ -82,7 +82,7 @@ class WordleApp:
         self.turn = 0
         self.candidates = list(game.S)
         self.first_feedback = None
-        self.guess = "rance"
+        self.guess = STARTING_WORD
         self.observed = [0] * 5
         for row in self.tiles:
             for tile in row:

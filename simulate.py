@@ -7,12 +7,14 @@ from pathlib import Path
 from time import perf_counter
 
 import main as game
-from second_guesses import SECOND_GUESSES
 
 GREEN = (2, 2, 2, 2, 2)
 
 
-def simulate(answers=None, progress=True):
+def simulate(answers=None, progress=True, starting_word=None, second_guesses=None):
+    from second_guesses import SECOND_GUESSES, STARTING_WORD
+    starting_word = STARTING_WORD if starting_word is None else starting_word
+    second_guesses = SECOND_GUESSES if second_guesses is None else second_guesses
     # Always retain the full candidate universe, even for a subset of targets.
     targets = set(game.S if answers is None else answers)
     unknown = targets.difference(game.S)
@@ -28,9 +30,9 @@ def simulate(answers=None, progress=True):
         if len(candidates) == 1:
             guess = candidates[0]
         elif t == 0:
-            guess = "rance"
+            guess = starting_word
         elif t == 1:
-            guess = SECOND_GUESSES.get(first_feedback)
+            guess = second_guesses.get(first_feedback)
             if guess is None:
                 _, guess = game.objFunc(t, candidates)
         else:

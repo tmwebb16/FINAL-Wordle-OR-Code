@@ -97,7 +97,7 @@ def objFunc(t, current_set):
 
 
 def main():
-    from second_guesses import SECOND_GUESSES
+    from second_guesses import SECOND_GUESSES, STARTING_WORD
 
     print("Wordle optimizer - aim to solve within four guesses")
     print("Play the suggested word, then enter its five feedback digits.")
@@ -111,7 +111,7 @@ def main():
                 if len(current_set) == 1:
                     best_word = current_set[0]
                 elif t == 0:
-                    best_word = "rance"
+                    best_word = STARTING_WORD
                 elif t == 1:
                     best_word = SECOND_GUESSES.get(first_feedback)
                     if best_word is None:
