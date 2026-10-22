@@ -1,2 +1,7 @@
 /WordleOptimizer.spec
 /.native/
+__pycache__/
+/build/
+solver_checkpoint.pkl
+solver_checkpoint.sqlite3
+solver_checkpoint.sqlite3-*

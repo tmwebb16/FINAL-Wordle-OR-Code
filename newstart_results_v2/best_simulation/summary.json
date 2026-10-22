@@ -1,0 +1,33 @@
+{
+  "starting_word": "tenor",
+  "total_games": 2308,
+  "solved": 2291,
+  "failed": 17,
+  "solve_rate": 0.99263431542461,
+  "solved_by_guess": {
+    "1": 1,
+    "2": 50,
+    "3": 408,
+    "4": 1832
+  },
+  "average_guesses_when_solved": 3.7769532955041467,
+  "failed_answers": [
+    "alive",
+    "flack",
+    "foyer",
+    "guild",
+    "hilly",
+    "jazzy",
+    "jiffy",
+    "jolly",
+    "judge",
+    "maker",
+    "paddy",
+    "river",
+    "shave",
+    "viper",
+    "wafer",
+    "watch",
+    "waver"
+  ]
+}
