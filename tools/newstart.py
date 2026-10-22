@@ -1,10 +1,13 @@
+import sys
+from pathlib import Path
+
+RESOURCE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(RESOURCE_DIR))
+
 from main import S, A, feedback
 import numpy as np
 import json
 from collections import Counter
-from pathlib import Path
-
-RESOURCE_DIR = Path(__file__).resolve().parent
 
 def orderedGuesses(current_set):
     counts = Counter(

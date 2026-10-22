@@ -13,7 +13,7 @@ CHILD = ct.CFUNCTYPE(ct.c_int, ct.POINTER(ct.c_int32), ct.c_int, ct.c_int)
 if os.environ.get('WORDLE_NO_NATIVE') != '1':
     source = ROOT / 'solver_native.c'
     digest = hashlib.sha256(source.read_bytes()).hexdigest()[:16]
-    directory = ROOT / '.native'
+    directory = ROOT.parent / '.native'
     target = directory / (digest + ('.dll' if os.name == 'nt' else '.so'))
     try:
         if not target.exists():

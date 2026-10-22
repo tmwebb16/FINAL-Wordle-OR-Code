@@ -1,3 +1,9 @@
+from pathlib import Path
+import sys
+
+RESOURCE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(RESOURCE_DIR))
+
 from main import A, S, feedback
 import numpy as np
 import json
@@ -7,7 +13,7 @@ def getFeedbackTable():
     sorted_A = sorted(A)
 
     table = np.lib.format.open_memmap(
-        "feedback_table.npy",
+        RESOURCE_DIR / "feedback_table.npy",
         mode="w+",
         dtype=np.uint8,
         shape=(len(sorted_A), len(S))
@@ -28,7 +34,7 @@ def getFeedbackTable():
 
     table.flush()
 
-    with open("feedback_table_words.json", "w") as file:
+    with open(RESOURCE_DIR / "feedback_table_words.json", "w") as file:
         json.dump({"guesses": sorted_A, "answers": S}, file)
 
     print("Feedback table completed!")

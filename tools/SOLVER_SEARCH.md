@@ -3,7 +3,7 @@
 Stop the old process with Ctrl+C and wait for its save to finish. Restart with:
 
 ```powershell
-py -B search_newstart.py --output newstart_results_v2
+py -B tools/search_newstart.py --output newstart_results_v2
 ```
 
 The first restart migrates `solver_checkpoint.pkl` into
@@ -55,7 +55,7 @@ the best count. A subset search does not otherwise establish global optimality.
 ## Verification
 
 ```powershell
-py -B audit_solver.py
+py -B tools/audit_solver.py
 ```
 
 The audit uses an independent feedback function and exhaustive four-turn solver,
@@ -69,8 +69,14 @@ To test the fallback in a separate PowerShell terminal:
 
 ```powershell
 $env:WORDLE_NO_NATIVE = '1'
-py -B audit_solver.py
+py -B tools/audit_solver.py
 ```
 
 Performance varies by state. Kernel benchmarks do not establish a total search
 runtime or prove that the full search can finish in three hours.
+
+Run these commands from the project root. To simulate the app strategy, use
+`py -B tools/simulate.py --output tenor_simulation_results`. To regenerate the
+TENOR table, use `py -B tools/generate_tenor_second_guesses.py`. To rebuild the
+feedback table, use `py -B tools/feedbacktable.py`. Generated resources and
+results remain in the project root.

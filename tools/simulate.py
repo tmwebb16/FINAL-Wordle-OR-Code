@@ -5,6 +5,10 @@ import json
 from collections import Counter, defaultdict
 from pathlib import Path
 from time import perf_counter
+import sys
+
+RESOURCE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(RESOURCE_DIR))
 
 import main as game
 
@@ -97,7 +101,7 @@ def save_results(results, summary, output):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=Path("simulation_results"),
+    parser.add_argument("--output", type=Path, default=RESOURCE_DIR / "simulation_results",
                         help="Directory for games.csv and summary.json")
     parser.add_argument("--answers", nargs="+", help="Optional subset of target answers")
     args = parser.parse_args()
